@@ -1,0 +1,12 @@
+.container{
+    direction: rtl;
+}
+img{
+    width: 6rem;
+}
+.navbar {
+    background-color: #00313c;
+}
+.dropdown-item{
+text-align: center;
+}
