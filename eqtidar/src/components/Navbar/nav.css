@@ -10,3 +10,7 @@ img{
 .dropdown-item{
 text-align: center;
 }
+.NavLink{
+    text-decoration: none;
+    color: #E5E5E5;
+}
