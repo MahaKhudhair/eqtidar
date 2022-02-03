@@ -5,9 +5,10 @@ import Info from "./info";
 const AboutUs=()=>{
     return (
         <div>
-        <Footer/>
+        
         <Header/>
         <Info/>
+        <Footer/>
         </div>
         )
 }
