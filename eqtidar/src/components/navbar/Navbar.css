@@ -1,0 +1,163 @@
+nav{
+  position: fixed;
+  background:rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20.4px);
+  -webkit-backdrop-filter: blur(16.4px);
+  border-bottom: 1px solid rgba(191, 191, 191, 0.63);
+  z-index: 0;
+}
+
+.navbar1 {
+
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.navbar1 ul{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+.navbar-logo {
+  justify-self: start;
+  width: 160px;
+  height: 52px;
+  background: url(../../assets/logo/logo_light.png) center center/cover no-repeat; 
+  cursor: pointer;
+}
+
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 180px;
+}
+
+.nav-links {
+  color:rgb(221, 221, 221);
+  text-decoration: none;
+  padding: 15px;
+}
+
+.nav-links:hover {
+  color: rgb(77, 77, 77);
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: rgb(221, 221, 221);
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    /* display: flex; */
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  .nav-menu.active {
+    background: rgb(0, 0, 0 ,0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1000px);
+    -webkit-backdrop-filter: blur(1000px);
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-links:hover {
+    background-color: rgba(0, 49, 60, 1);
+    color: #fff;
+    border-radius: 0;
+  }
+
+  .navbar-logo {
+    display: flex;
+    justify-self: center;
+    top: 0;
+    left: 0;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: rgb(221, 221, 221);
+    font-size: 2rem;
+  }
+
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 1rem ;
+    border-radius: 4px;
+    width: 100%;
+    background: rgba(0, 49, 60, 1);
+    text-decoration: none;
+    color: rgb(221, 221, 221);
+    font-size: 1.5rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: rgba(0, 49, 60, 1);
+    transition: 250ms;
+  }
+  .nav-item{
+    width: 100%;
+    margin:1rem;
+  }
+  .btn2 {
+    display: none;
+    width:100%;
+  }
+}
