@@ -1,7 +1,7 @@
 import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
+import Home from "./pages/HomePage/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TopNavbar from "./components/Navbar/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Appraisal from "./pages/Appraisal/Appraisal";
 import Footer from "./components/Footer/Footer";
@@ -14,10 +14,10 @@ import Sell from "./pages/Sell/Sell";
 function App() {
   return (
     <Router>
-      <TopNavbar />
+      <Navbar />
 
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/appraisal" element={<Appraisal />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/rent" element={<Rent />} />
