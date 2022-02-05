@@ -1,0 +1,41 @@
+.ABOUT{
+    /* color: 00313C; */
+    margin-bottom: 50PX;
+    padding-top: 100PX;
+    padding-right: 50PX;
+    color: #00313C;
+    
+}
+
+h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 68px;
+    text-align: right;
+    color: 00313C;
+    
+}
+
+p{
+    
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 26px;
+    line-height: 68px;
+    text-align: right;
+    color: 000000;
+    padding-right: 50PX;
+    line-height: 30px;
+
+}
+.First{
+    margin-bottom: 70px;
+    
+}
+
+.Second{
+    margin-bottom: 70px;
+    
+
+}

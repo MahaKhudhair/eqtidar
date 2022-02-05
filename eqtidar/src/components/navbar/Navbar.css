@@ -10,7 +10,7 @@ nav{
 
 .navbar1 {
 
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,19 +20,18 @@ nav{
 .navbar1 ul{
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 7px;
 }
 .navbar-logo {
   justify-self: start;
-  width: 160px;
-  height: 52px;
+  width: 90px;
+  height: 30px;
   background: url(../../assets/logo/logo_light.png) center center/cover no-repeat; 
   cursor: pointer;
 }
 
 .fa-firstdraft {
   margin-left: 0.5rem;
-  font-size: 1.6rem;
 }
 
 .nav-menu {
@@ -75,6 +74,7 @@ nav{
 }
 
 @media screen and (max-width: 960px) {
+  
   .nav-menu {
     /* display: flex; */
     flex-direction: column;
@@ -114,6 +114,8 @@ nav{
     justify-self: center;
     top: 0;
     left: 0;
+    margin: 0px;
+    padding: 0px;
   }
 
   .menu-icon {

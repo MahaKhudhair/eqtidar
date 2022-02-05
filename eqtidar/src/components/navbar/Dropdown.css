@@ -1,4 +1,4 @@
-.dropdown-menu {
+.dropdown-menu1 {
   background: rgb(184, 184, 184);
   width: 200px;
   position: absolute;
@@ -7,16 +7,16 @@
   text-align: start;
 }
 
-.dropdown-menu li {
+.dropdown-menu1 li {
   background: rgba(0, 49, 60, 1);
   cursor: pointer;
 }
 
-.dropdown-menu li:hover {
+.dropdown-menu1 li:hover {
   background: rgb(87, 87, 87);
 }
 
-.dropdown-menu.clicked {
+.dropdown-menu1.clicked {
   display: none;
 }
 
