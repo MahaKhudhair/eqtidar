@@ -5,3 +5,10 @@
     text-decoration: none;
     color: #E5E5E5;
 }
+.footer_logo{
+    justify-self: start;
+    width: 150px;
+    height: 50px;
+    background: url(../../assets/logo/logo_light.png) center center/cover no-repeat; 
+    cursor: pointer;
+}
