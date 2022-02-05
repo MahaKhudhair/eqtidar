@@ -39,7 +39,7 @@ const Home = () => {
     </div>
     <div className='card-services'>
       <h1 className='card-title'>ايجار</h1>
-      <p className='description-card1'>يتيح لك موقعنا العديد من العقارات المعروضة للايجار يمكنك الاختيار العروص التي تناسبك.</p>
+      <p className='description-card1'>يتيح لك موقعنا العديد من العقارات المعروضة للايجار يمكنك الاختيار العروض التي تناسبك.</p>
       <Link to='/'>
     <button className='btn-card1'>للمزيد</button>
     </Link>

@@ -1,7 +1,5 @@
-<<<<<<< Updated upstream
+
 import React from "react";
-=======
-import React from "react"
 const AboutUs=()=>{
     return (
         <div className="aboutus">
@@ -15,14 +13,27 @@ const AboutUs=()=>{
                          <p className="one">   جولات عقارية على امتداد بغداد</p>
                          <p className="one">  الكرخ والرصافة</p>
                     </div>
->>>>>>> Stashed changes
 
- function AboutUs(){
+                
+                    <div className="Second">
+                         <p> عد الشراء</p>
+                         <p> لدينا فرق متخصص في متابعة اجرأت:</p></div>
 
-    return (
-<div><h1>about</h1></div>
+                         <div className="thired">
+                         <p> سند التمليك (الطابو)</p>
+                         <p> استلام العقار وتحققمن مطابقته للعقد</p>
+                         <p> استخراج الاقامه العقاريه</p>
+                         <p> فتح حساب بنكي</p>
+                         <p>  تجهيز العقار وملحقاته للاستخدام</p>
+                         <p> الديكور,الفرش ,الماء والغاز والكهرباء</p>
+                         <p>  ادارة شؤون العقار: تأجيره ,اعادة بيعه حسب الرغبه ,متابعه الضرائب والرسوم والفواتير الخاصة بالعقار</p>
+                     </div>
+                </div>
 
-    )
+            
+            
+                </div>
+    
+        )
 }
-
 export default AboutUs;
