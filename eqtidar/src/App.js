@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Rent from "./pages/Rent/Rent";
 import Buy from "./pages/Buy/Buy";
 import Sell from "./pages/Sell/Sell";
+import "./index.css"
 
 function App() {
   return (
