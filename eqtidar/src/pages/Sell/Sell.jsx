@@ -42,12 +42,13 @@ function Appraisal() {
         <div className="text_appraisal col-xs-12 col-md-12 col-lg-3  px-3">
           <h3>بيع العقارات</h3>
           <p>
-            يمكنك عرض عقارك للبيع عن طريق موقعنا من خلال تزويدنا ببعض الصور والتفاصيل
+            يمكنك عرض عقارك للبيع عن طريق موقعنا من خلال تزويدنا ببعض الصور
+            والتفاصيل
           </p>
-         </div>
+        </div>
         <div className="form_appraisal  col-xs-12 col-sm-12 col-md-12 col-lg-8  px-3">
           <Form className="form_appraisal">
-          <Form.Label>تفاصيل العقار</Form.Label>
+            <Form.Label>تفاصيل العقار</Form.Label>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control
                 type="text"
@@ -59,7 +60,7 @@ function Appraisal() {
               <Form.Group className="col mx-1 ">
                 <Button
                   className="input-box appraisal_btn "
-                  style= {{width:'100%'}}
+                  style={{ width: "100%" }}
                   onClick={handleShow}
                 >
                   تعيين على الخارطة{" "}
