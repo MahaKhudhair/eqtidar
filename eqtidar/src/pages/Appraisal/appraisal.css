@@ -21,19 +21,17 @@
 #image_appraisal::before {
   content: "ارفاق صورة";
   color: #101921 !important;
-   
-  }
+}
 #image_appraisal::-webkit-file-upload-button {
   visibility: hidden;
   overflow: hidden;
-  
 }
-input[type='file'] {
-    color: rgba(0, 0, 0, 0)!important;
-    overflow: hidden!important;
-  }
+input[type="file"] {
+  color: rgba(0, 0, 0, 0) !important;
+  overflow: hidden !important;
+}
 .form_appraisal .input-box {
-  color: #c7c9c9;
+  color: #333;
 }
 input[type="number"].input-box::-webkit-input-placeholder,
 input[type="text"].input-box::-webkit-input-placeholder,
