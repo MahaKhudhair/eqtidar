@@ -11,6 +11,7 @@ import Rent from "./pages/Rent/Rent";
 import Buy from "./pages/Buy/Buy";
 import Sell from "./pages/Sell/Sell";
 import "./index.css"
+import Details from "./pages/details/Details";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/sell" element={<Sell />} />
         <Route path="management" element={<Management />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/details" element={<Details />} />
       </Routes>
       <Footer />
     </Router>

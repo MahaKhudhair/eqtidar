@@ -149,7 +149,7 @@ function Appraisal() {
 
             <Form.Group className="mb-3" controlId="">
               <br />
-              <Form.Label>معلومات الزبون</Form.Label>
+              <Form.Label>معلومات البائع</Form.Label>
               <Form.Control
                 type="tel"
                 className="input-box"
