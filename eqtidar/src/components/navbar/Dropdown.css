@@ -1,8 +1,10 @@
 .dropdown-menu1 {
-  background: rgb(184, 184, 184);
-  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 12.5rem;
   position: absolute;
-  top: 80px;
+  top: 5rem;
   list-style: none;
   text-align: start;
 }
@@ -13,7 +15,8 @@
 }
 
 .dropdown-menu1 li:hover {
-  background: rgb(87, 87, 87);
+  color:  rgba(0, 49, 60, 1);
+  background: rgb(255, 255, 255);
 }
 
 .dropdown-menu1.clicked {
@@ -26,7 +29,7 @@
   width: 100%;
   text-decoration: none;
   color: rgb(236, 236, 236);
-  padding: 16px;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 960px) {
