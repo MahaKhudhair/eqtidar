@@ -1,0 +1,84 @@
+
+.realestate-container{
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 8rem 6rem 8rem 6rem;
+    justify-content: flex-start;
+    justify-self: center;
+
+}
+
+.realestate-card{
+    align-self:center;
+    background: rgb(0,49,60);
+    box-shadow: 0 4px 20px rgba(77, 77, 77, 0.705);
+    backdrop-filter: blur(20.4px);
+    border-radius: 0.75rem;
+    -webkit-backdrop-filter: blur(16.4px);
+    width: 25rem;
+    height: 30rem;
+    margin: 1.5rem;
+    display: grid;
+    grid-template-rows: 50% ;
+    justify-items: flex-start;
+}
+.realestate-card:hover{
+    box-shadow: 0 1.25rem 2.5rem rgb(0, 0, 0);
+    width:26.7rem ;
+    height: 32rem;
+    -webkit-transition: all 1.1s 0s ease-in-out;
+    -moz-transition: all 1.1s 0s ease-in-out;
+    -o-transition: all 1.1s 0s ease-in-out;
+    transition: all 1.1s 0s ease-in-out;
+}
+.card-img-container{
+    background:linear-gradient(to bottom, rgba(14, 14, 14, 0), rgb(0,49,60));
+    width: 100%;
+    height: 19rem;
+    display: flex;
+    justify-self: center;
+    border-radius: 10px 10px 0px 0px;
+}
+.card-img{
+    height: auto;
+    width: 100%;
+}
+
+.card-details{
+    /* position:absolute; */
+    padding: 0.25rem 1.25rem 1.25rem 0px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.card-status{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.card-category{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+}
+.card-text{
+    color: #fff;
+    font-size: 0.75rem;
+}
+.realestate-card-btn{
+    margin-bottom: 1.25rem;
+    background:rgb(197, 197, 197);
+    color:rgb(0,49,60);
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
+    border: white ;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+}

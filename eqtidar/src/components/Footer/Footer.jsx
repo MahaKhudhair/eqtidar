@@ -9,7 +9,7 @@ import { FaViber } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="text-right text-lg-end color pt-3">
-      <div className="container p-4">
+      <div className="container p-4" id="footerco">
         <div className="row">
           <div className="col-lg-5 col-xs-12 about-company">
             <div className="footer_logo">.</div>
@@ -86,7 +86,7 @@ const Footer = () => {
 
           <hr className="my-3 a" />
 
-          <section className="p-3 pt-0 text-white">
+          <section className="p-3 pt-0 text-white" id="cop">
             <div className="row d-flex align-items-center">
               <div className="text-white col-md-7 col-lg-8 text-center text-md-start">
                 <div className="p-3">

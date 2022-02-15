@@ -2,7 +2,7 @@
 import React from "react";
 const AboutUs=()=>{
     return (
-        <div className="aboutus">
+        <div className="aboutus m-5 p-5">
             
                 <h1 className="ABOUT">عن شركتنا</h1>
                 <div className="infFo">
@@ -21,7 +21,7 @@ const AboutUs=()=>{
 
                          <div className="thired">
                          <p> سند التمليك (الطابو)</p>
-                         <p> استلام العقار وتحققمن مطابقته للعقد</p>
+                         <p> استلام العقار والتحقق من مطابقته للعقد</p>
                          <p> استخراج الاقامه العقاريه</p>
                          <p> فتح حساب بنكي</p>
                          <p>  تجهيز العقار وملحقاته للاستخدام</p>
