@@ -12,7 +12,9 @@ import Buy from "./pages/Buy/Buy";
 import Sell from "./pages/Sell/Sell";
 import "./index.css"
 import Details from "./pages/details/Details";
-
+import Signup from "./pages/Signup/Form";
+import Login from "./pages/Login/Form";
+import Realestate from "./pages/realestate/Realestate";
 function App() {
   return (
     <Router>
@@ -24,9 +26,12 @@ function App() {
         <Route path="/buy" element={<Buy />} />
         <Route path="/rent" element={<Rent />} />
         <Route path="/sell" element={<Sell />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="management" element={<Management />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/details" element={<Details />} />
+        <Route path="/realestate" element={<Realestate />} />
       </Routes>
       <Footer />
     </Router>
