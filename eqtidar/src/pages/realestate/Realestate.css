@@ -36,7 +36,9 @@
     transition: all 1.1s 0s ease-in-out;
 }
 .card-img-container{
-    background:linear-gradient(to bottom, rgba(14, 14, 14, 0), rgb(0,49,60));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
     height: 19rem;
     display: flex;
