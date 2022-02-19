@@ -7,8 +7,8 @@ import Appraisal from "./pages/Appraisal/Appraisal";
 import Footer from "./components/Footer/Footer";
 import Management from "./pages/Management/Management";
 import AboutUs from "./pages/AboutUs/AboutUs";
-import Rent from "./pages/Rent/Rent";
-import Buy from "./pages/Buy/Buy";
+// import Rent from "./pages/Rent/Rent";
+// import Buy from "./pages/Buy/Buy";
 import Sell from "./pages/Sell/Sell";
 import "./index.css"
 import Details from "./pages/details/Details";
@@ -23,8 +23,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/appraisal" element={<Appraisal />} />
-        <Route path="/buy" element={<Buy />} />
-        <Route path="/rent" element={<Rent />} />
         <Route path="/sell" element={<Sell />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/login" element={<Login />} />

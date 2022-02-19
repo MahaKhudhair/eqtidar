@@ -110,7 +110,8 @@ const Realestate = () => {
     const listRealestates = content.map((item)=>
         <div className='realestate-card'>
             <div className='card-img-container'>
-                <img src={item.image} className='card-img'></img></div>
+                {/* <img src={item.image} className='card-img'></img> */}
+                </div>
                 <div className='card-details'>
                     <h1 className='card-status'>معروض {item.status}</h1>
                     <h2 className='card-category'>{item.category.name}</h2>
