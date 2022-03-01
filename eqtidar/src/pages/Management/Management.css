@@ -1,0 +1,22 @@
+.container-management {
+  background: linear-gradient(to bottom, #101820 0%, #00313c 100%);
+  padding: 6rem 12rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #c7c9c9;
+  flex-wrap: wrap;
+}
+.management-img {
+  width: 67%;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.management-text {
+  margin: auto;
+  width: 80%;
+  padding: 14px;
+}

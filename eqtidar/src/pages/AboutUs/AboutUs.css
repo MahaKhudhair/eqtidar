@@ -1,45 +1,23 @@
-.aboutus{
-    margin-top: 4rem;
+.container-aboutus{
+  background: linear-gradient(to bottom, #101820 0%, #00313c 100%);
+  padding: 6rem 12rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #c7c9c9;
+  flex-wrap: wrap;
 }
-
-.ABOUT{
-    /* color: 00313C; */
-    margin-bottom: 50PX;
-    padding-top: 100PX;
-    padding-right: 50PX;
-    color: #00313C;
-    
+.about-img{
+    width: 60%;
+    border-radius: 5px;
+    margin-top: 5rem;
 }
-
-h1{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 68px;
-    text-align: right;
-    color: 00313C;
-    
-}
-
-p{
-    
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 26px;
-    line-height: 68px;
-    text-align: right;
-    color: 000000;
-    padding-right: 50PX;
-    line-height: 30px;
-
-}
-.First{
-    margin-bottom: 70px;
-    
-}
-
-.Second{
-    margin-bottom: 70px;
-    
-
-}
+.about-bg{
+  background-image: url("../../assets/img/pattern01.png");
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}  
