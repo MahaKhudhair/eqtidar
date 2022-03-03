@@ -135,7 +135,7 @@
   .form-container{
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.109), rgb(0, 29, 36)),url(/src/assets/img/signup.jpg) center center/ cover no-repeat;
     margin: 100px;
-    width: 70%;
+    width: 90%;
     height: 500px;
     display: flex;
     flex-flow: row-reverse;

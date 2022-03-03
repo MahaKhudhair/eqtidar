@@ -1,14 +1,56 @@
-import React from 'react';
-import validate from '../Signup/validateInfo';
-import useForm from '../Signup/useForm';
+
+import React, { useContext , useState } from "react";
+import { useNavigate} from "react-router-dom";
+import axios from "../../utils/axios";
+import { TOKEN_KEY } from "../../utils/Constants";
+import AuthContext from "../../contexts/authcontext";
+import useAuth from '../../hooks/useAuth';
+import validate from "./validate";
 import './Form.css';
+function FormLogin () {
+  const navigate = useNavigate();
+  const {isAuth} = useAuth()
+  if(isAuth){
+    navigate('/')
+  }
+    const [values, setValues] = useState({
+      email: '',
+      password: '',
+    });
+  const [errors, setErrors] = useState({});
+  const { login } = useContext(AuthContext);
 
-const FormLogin = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
-    submitForm,
-    validate
-  );
 
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    setErrors(validate(values));
+    if (Object.keys(errors).length === 0){
+      login(values.email , values.password);
+      if (!isAuth){
+        console.log('done')
+        console.log(isAuth)
+        
+      }
+      else{
+        console.log('kol khara')
+        console.log(isAuth)
+        return navigate('/')
+      }
+    }
+    else{
+      return errors
+    }
+  };
   return (
     <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>

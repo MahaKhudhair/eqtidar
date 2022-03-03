@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState , useContext } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
+import AuthContext from "../../contexts/authcontext";
+import useAuth from '../../hooks/useAuth';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
+  const {isAuth} = useAuth()
+  const { logout } = useContext(AuthContext);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -47,7 +50,7 @@ function Navbar() {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='Realestate'
+              to='realestate'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -74,15 +77,30 @@ function Navbar() {
             </Link>
           </li>
           <li>
+          {!isAuth?
             <Link
               to='/sign-up'
               className='nav-links-mobile'
               onClick={closeMobileMenu}>
               انشاء حساب
             </Link>
+          :
+          <button
+              
+              className='nav-links-mobile'
+              onClick={()=>logout()}>
+          تسجيل خروج
+            </button>
+          }
           </li>
         </ul>
-        <Button />
+        {!isAuth? <Button /> : <button
+              
+              className='btn2'
+              onClick={()=>logout()}>
+          تسجيل خروج
+            </button>
+            }
       </nav>
     </>
   );

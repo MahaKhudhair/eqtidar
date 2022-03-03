@@ -15,7 +15,6 @@ const Login = () => {
           <FormLogin submitForm={submitForm} />
       </div>
     </div>
-
     </>
   );
 };

@@ -1,14 +1,55 @@
-import React from 'react';
-import validate from './validateInfo';
-import useForm from './useForm';
+
+import React, { useContext , useState } from "react";
 import './Form.css';
+import { useNavigate} from "react-router-dom";
+import axios from "../../utils/axios";
+import { TOKEN_KEY } from "../../utils/Constants";
+import AuthContext from "../../contexts/authcontext";
+import useAuth from '../../hooks/useAuth';
+import validate from "./validate";
+const FormSignup = () => {
+  const navigate = useNavigate();
+  const {isAuth} = useAuth()
+  if(isAuth){
+    navigate('/')
+  }
+  const [values, setValues] = useState({
+    full_name: '',
+    phone_number: '',
+    email: '',
+    password1: '',
+    password2: ''
+  });
 
-const FormSignup = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
-    submitForm,
-    validate
-  );
+  const [errors, setErrors] = useState({});
+  const { signup } = useContext(AuthContext);
 
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    setErrors(validate(values));
+    if (Object.keys(errors).length === 0){
+      signup(values.full_name , values.email , values.phone_number, values.password1 , values.password2);
+      if (!isAuth){
+        console.log('error in signup')
+      }
+      else{
+        console.log(isAuth)
+        return navigate('/')
+      }
+    }
+    else{
+      return errors
+    }
+  };
   return (
     <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
@@ -20,7 +61,7 @@ const FormSignup = ({ submitForm }) => {
             className='form-input'
             type='text'
             name='fullName'
-            placeholder='الاسم الكامل'
+            placeholder='الاسم الاول'
             value={values.fullName}
             onChange={handleChange}
           />
