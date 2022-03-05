@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import validate from './validateSell';
 import "./appraisal.css";
 import Form from "react-bootstrap/Form";
@@ -109,6 +109,9 @@ import { useNavigate} from "react-router-dom";
     setDefaultLocation({ ...DefaultLocation });
     setZoom(DefaultZoom);
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="container_appraisal">
       <div className="row">

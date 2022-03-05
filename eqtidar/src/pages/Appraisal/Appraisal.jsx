@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect  } from 'react';
 import validate from './validateSell';
 import "./appraisal.css";
 import Form from "react-bootstrap/Form";
@@ -91,9 +91,11 @@ const Appraisal= ()=>{
     setDefaultLocation({ ...DefaultLocation });
     setZoom(DefaultZoom);
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
-    <div className="container_appraisal">
+    <><div className="container_appraisal">
       <div className="row">
         <div className="text_appraisal col-xs-12 col-md-12 col-lg-3  px-3">
           <h3>تقييم عقاري</h3>
@@ -293,7 +295,7 @@ const Appraisal= ()=>{
                     style={{ height: "500px" }}
                     onChangeLocation={handleChangeLocation}
                     onChangeZoom={handleChangeZoom}
-                    apiKey="AIzaSyDKyLaf0yMiN8jBTA1vlq8EOxQewJKJQOw"
+                    apiKey="AIzaSyB-hlIncnBVuZhUlAr27b2g3o6edyp9SFQ"
                   />
                 </>
               </Modal.Body>
@@ -307,7 +309,7 @@ const Appraisal= ()=>{
           </Form>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 export default Appraisal;

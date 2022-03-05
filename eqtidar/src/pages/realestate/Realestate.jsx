@@ -1,6 +1,7 @@
 import React ,{useEffect , useState} from 'react';
 import './Realestate.css' ;
 import axios from '../../utils/axios'
+import { Link } from 'react-router-dom';
 const Realestate = () => {
     const [data, setData] = useState({
 		posts: [],
@@ -23,7 +24,7 @@ const Realestate = () => {
                     <h1 className='card-status'>معروض {item.status}</h1>
                     <h2 className='card-category'>{item.category.category_name}</h2>
                     <p className='card-text'>السعر : {item.price} <br/> الموقع :   {item.location} <br/> المساحة : {item.size} متر</p>
-                    <button className='realestate-card-btn'>للمزيد</button>
+                    <Link to='/details'><button className='realestate-card-btn'>للمزيد</button></Link>
                     </div>      
         </div>
         )

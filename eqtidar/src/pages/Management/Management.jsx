@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
@@ -6,6 +6,9 @@ import img001 from "../../assets/img/details05.jpg";
 import img002 from "../../assets/img/details02.jpg";
 import "./Management.css";
 function Management() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="container-management">
       <Row>

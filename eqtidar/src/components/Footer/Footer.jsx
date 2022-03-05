@@ -14,21 +14,21 @@ const Footer = () => {
           <div className="col-lg-5 col-xs-12 about-company">
             <div className="footer_logo">.</div>
 
-            <ul className="list-unstyled p-0">
+            <ul className="list-unstyled p-0 mt-3">
               <li>
-                <a href="#!" className="a">
+                <p className="a">
                   بيع / شراء عقارات
-                </a>
+                </p>
               </li>
               <li>
-                <a href="#!" className="a">
+                <p className="a">
                   مناطق سكنية وتجارية
-                </a>
+                </p>
               </li>
               <li>
-                <a href="#!" className="a ">
+                <p className="a">
                   خدمات واستشارات
-                </a>
+                </p>
               </li>
             </ul>
           </div>
@@ -38,22 +38,22 @@ const Footer = () => {
 
             <ul class="list-unstyled mb-0 p-0">
               <li>
-                <a href="#!" className="a">
+                <a href="/realestate" className="a">
                   عقارات للبيع والشراء
                 </a>
               </li>
               <li>
-                <a href="#!" className="a">
+                <a href="/Management" className="a">
                   ادارة الاملاك
                 </a>
               </li>
               <li>
-                <a href="#!" className="a">
+                <a href="/Appraisal" className="a">
                   تقييم عقاري
                 </a>
               </li>
               <li>
-                <a href="#!" className="a">
+                <a href="/about-us" className="a">
                   من نحن
                 </a>
               </li>
