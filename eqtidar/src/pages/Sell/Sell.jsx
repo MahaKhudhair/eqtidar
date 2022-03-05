@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "../Appraisal/appraisal.css";
+import React, { useState } from 'react';
+import validate from './validateSell';
+import "./appraisal.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -8,8 +9,70 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
-
-function Appraisal() {
+import axios from '../../utils/axios';
+import { authHeader } from '../../hooks/authHeader';
+import { TOKEN_KEY } from '../../utils/Constants';
+const Sell = () => {
+  const [values, setValues] = useState({
+    location: '',
+    category_name:'',
+    map_lng:0,
+    map_lat:0,
+    size:0,
+    room:0,
+    bathroom:0,
+    kitchen:'',
+    status:'',
+    description:'',
+    price:'',
+  });
+  const [image , setImage] = useState()
+  const [errors, setErrors] = useState({});
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  };
+  const changeHandler = (e) =>{
+    setImage(e.target.files[0])
+  }
+  console.log(values)
+  const formData = new FormData()
+  formData.append('price' , values.price)
+  formData.append('size' , values.size)
+  formData.append('description' , values.description)
+  formData.append('location' , values.location)
+  formData.append('map_lng' , values.map_lng)
+  formData.append('map_lat' , values.map_lat)
+  formData.append('room' , values.room)
+  formData.append('bathroom' , values.bathroom)
+  formData.append('kitchen' , values.kitchen)
+  formData.append('category_name' , values.category_name)
+  formData.append('status' , values.status)
+  formData.append('imgs' ,image)
+  let token =localStorage.getItem(TOKEN_KEY)
+  const config = {
+    headers:{'Authorization': `Basic ${token}`,'content-type':'multipart/form-data'}
+  }
+  console.log(formData)
+  const handleSubmit = e => {
+    e.preventDefault();
+    setErrors(validate(values));
+    if (Object.keys(errors).length === 0){
+      axios.post('/api/realestate/sell',formData , config)
+      .then((response)=>{
+        console.log('success')
+      })
+      .catch((err)=>{
+          
+      })
+    }
+    else{
+      return errors
+    }
+  };
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,7 +89,6 @@ function Appraisal() {
   function handleChangeLocation(lat, lng) {
     setLocation({ lat: lat, lng: lng });
   }
-
   function handleChangeZoom(newZoom) {
     setZoom(newZoom);
   }
@@ -35,76 +97,73 @@ function Appraisal() {
     setDefaultLocation({ ...DefaultLocation });
     setZoom(DefaultZoom);
   }
-
   return (
     <div className="container_appraisal">
       <div className="row">
         <div className="text_appraisal col-xs-12 col-md-12 col-lg-3  px-3">
-          <h3>بيع العقارات</h3>
+          <h3>البيع</h3>
           <p>
-            يمكنك عرض عقارك للبيع عن طريق موقعنا من خلال تزويدنا ببعض الصور
-            والتفاصيل
+            هي خدمة مجانية نقدمها لزبائننا يقوم الزبون بارسال صور للعقار مع بعض
+            المعلومات كالعنوان والمساحة وسوف تقوم الشركة باجراء البيع
+            يستند على اسس اقتصادية صحيحة
           </p>
+          <p>يتم الرد عن طريق تطبيقات التواصل الاجتماعي.</p>
         </div>
         <div className="form_appraisal  col-xs-12 col-sm-12 col-md-12 col-lg-8  px-3">
-          <Form className="form_appraisal">
+          <Form className="form_appraisal" onSubmit={handleSubmit}>
+
+
             <Form.Label>تفاصيل العقار</Form.Label>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+
+            <Form.Group className="mb-3" controlId="formBasicEmail" >
               <Form.Control
                 type="text"
+                name="adress"
                 placeholder="العنوان"
                 className="input-box"
+                value={values.location}
+              onChange={handleChange}
               />
+              {errors.location && <p>{errors.location}</p>}
             </Form.Group>
             <div className="row">
               <Form.Group className="col mx-1 ">
                 <Button
+
                   className="input-box appraisal_btn "
-                  style={{ width: "100%" }}
+                  style={{ width: '100%' }}
+                  name="location"
                   onClick={handleShow}
+                  onChange={handleChange}
+
                 >
                   تعيين على الخارطة{" "}
                 </Button>
+
               </Form.Group>
+
+
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
                   placeholder="lat"
-                  value={location.lat}
+                  value={values.map_lat}
+                  name="map_lat"
                   className="input-box"
+                  onChange={handleChange}
                 />
+
               </Form.Group>
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
                   placeholder="lng"
-                  value={location.lng}
+                  value={values.map_lng}
+                  name="map_lng"
                   className="input-box"
+                  onChange={handleChange}
                 />
-              </Form.Group>
-            </div>
-            <br />
-            <div className="row">
-              <Form.Group className="col mx-1">
-                <Form.Control
-                  type="number"
-                  placeholder="المساحة الكلية"
-                  className="input-box"
-                />
-              </Form.Group>
-              <Form.Group className="col mx-1">
-                <Form.Control
-                  type="number"
-                  placeholder="عرض الواجهة"
-                  className="input-box"
-                />
-              </Form.Group>
-              <Form.Group className="col mx-1">
-                <Form.Control
-                  type="number"
-                  placeholder="النزال"
-                  className="input-box"
-                />
+
               </Form.Group>
             </div>
             <br />
@@ -113,16 +172,77 @@ function Appraisal() {
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
+                  value={values.size}
+                  name="size"
+                  placeholder="المساحة الكلية"
+                  className="input-box"
+                  onChange={handleChange}
+                />
+                {errors.size && <p>{errors.size}</p>}
+              </Form.Group>
+
+
+              <Form.Group className="col mx-1">
+                <Form.Control
+                  type="number"
+                  placeholder="عدد المطابخ"
+                  name="kitchen"
+                  className="input-box"
+                  onChange={handleChange}
+                />
+                {errors.kitchen && <p>{errors.kitchen}</p>}
+              </Form.Group>
+
+              </div>
+              <br />
+
+
+
+              <div className='row'>
+              <Form.Group className="col mx-1" >
+              <Form.Select aria-label="Default select example" className='select'>
+ 
+                  <option value={values.category_name}>منزل</option>
+                 <option value={values.category_name}>شقة</option>
+                 
+              </Form.Select>
+              </Form.Group>
+
+              <Form.Group className="col mx-1">
+              <Form.Select aria-label="Default select example" className='select' >
+ 
+                  <option value={values.status}>بيع</option>
+                 <option value={values.status}>ايجار</option>
+                 
+              </Form.Select>
+              </Form.Group>
+
+
+              </div>
+              <br/>
+              
+           
+           
+            <div className="row">
+              <Form.Group className="col mx-1">
+                <Form.Control
+                  type="number"
+                  onChange={handleChange}
+                  name="room"
                   placeholder="عدد الغرف"
                   className="input-box"
                 />
+                {errors.room && <p>{errors.room}</p>}
               </Form.Group>
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
+                  onChange={handleChange}
                   placeholder="عدد المرافق"
+                  name="bathroom"
                   className="input-box"
                 />
+                {errors.bathroom && <p>{errors.bathroom}</p>}
               </Form.Group>
               <Form.Group className="col mx-1">
                 <Form.Control
@@ -132,31 +252,47 @@ function Appraisal() {
                   id="image_appraisal"
                   name="image_appraisal"
                   accept="image/png, image/jpeg"
+                  onChange={changeHandler}
                 />
+                {errors.imgs && <p>{errors.imgs}</p>}
               </Form.Group>
             </div>
             <br />
             <Form.Group>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="details_appraisal"
                 placeholder="تفاصيل اخرى"
                 rows="3"
+                onChange={handleChange}
+                value={values.description}
               ></textarea>
               {/* <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text> */}
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="">
               <br />
-              <Form.Label>معلومات البائع</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicEmail" >
               <Form.Control
+                type="text"
+                name="value"
+                placeholder="السعر"
+                className="input-box"
+                value={values.price}
+              onChange={handleChange}
+              />
+              {errors.price && <p>{errors.price}</p>}
+            </Form.Group>
+              {/* <Form.Control
                 type="tel"
                 className="input-box"
                 placeholder="رقم الهاتف"
+                onChange={handleChange}
+                name="phone"
               />
-            </Form.Group>
+              {errors.phone && <p>{errors.phone}</p>}
+            </Form.Group> */}
             <Button type="submit" className="input-box appraisal_btn btn_send">
               ارسال
             </Button>
@@ -176,9 +312,9 @@ function Appraisal() {
                 <>
                   <button onClick={handleResetLocation}>Reset Location</button>
                   <label>Latitute:</label>
-                  <input type="text" value={location.lat} disabled />
+                  <input type="text" value={values.lat} disabled />
                   <label>Longitute:</label>
-                  <input type="text" value={location.lng} disabled />
+                  <input type="text" value={values.map_lng} disabled />
                   <label>Zoom:</label>
                   <input type="text" value={zoom} disabled />
 
@@ -206,4 +342,4 @@ function Appraisal() {
     </div>
   );
 }
-export default Appraisal;
+export default Sell;

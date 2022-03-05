@@ -9,24 +9,22 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
+import axios from '../../utils/axios';
 
 const Appraisal= ()=>{
   const [values, setValues] = useState({
-    adress: '',
-    location:'',
-    area:'',
-    width:'',
-    home:'',
-    room:'',
-    bath:'',
-    imge:'',
-    phone: '',
-  
+    location: '',
+    map_lng:0,
+    map_lat:0,
+    size:0,
+    room:0,
+    bathroom:0,
+    kitchen:'',
+    phone:'',
+    note:''
   });
-  const [show, setShow] = useState(false);
+  const [image , setImage] = useState()
   const [errors, setErrors] = useState({});
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const handleChange = e => {
     const { name, value } = e.target;
     setValues({
@@ -34,11 +32,44 @@ const Appraisal= ()=>{
       [name]: value
     });
   };
+  const changeHandler = (e) =>{
+    setImage(e.target.files[0])
+  }
+  const formData = new FormData()
+  formData.append('phone' , values.phone)
+  formData.append('size' , values.size)
+  formData.append('note' , values.note)
+  formData.append('location' , values.location)
+  formData.append('map_lng' , values.map_lng)
+  formData.append('map_lat' , values.map_lat)
+  formData.append('room' , values.room)
+  formData.append('bathroom' , values.bathroom)
+  formData.append('kitchen' , values.kitchen)
+  formData.append('imgs' ,image)
+
+
+  const config = {
+    headers:{'content-type':'multipart/form-data'}
+  }
   const handleSubmit = e => {
     e.preventDefault();
-
     setErrors(validate(values));
+    if (Object.keys(errors).length === 0){
+      axios.post('/api/appraisal',formData , config)
+      .then((response)=>{
+      })
+      .catch((err)=>{
+          
+      })
+    }
+    else{
+      return errors
+    }
   };
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const DefaultLocation = { lat: 33.32, lng: 44.35 };
   const DefaultZoom = 16;
@@ -82,13 +113,13 @@ const Appraisal= ()=>{
             <Form.Group className="mb-3" controlId="formBasicEmail" >
               <Form.Control
                 type="text"
-                name="adress"
+                name="location"
                 placeholder="العنوان"
                 className="input-box"
-                value={values.adress}
+                value={values.location}
             onChange={handleChange}
               />
-              {errors.adress && <p>{errors.adress}</p>}
+              {errors.location && <p>{errors.location}</p>}
             </Form.Group>
             <div className="row">
               <Form.Group className="col mx-1 ">
@@ -96,8 +127,7 @@ const Appraisal= ()=>{
                
                   className="input-box appraisal_btn "
                   style= {{width:'100%'}}
-                  value={location.lng}
-                  name="location"
+                  name="aa"
                   onClick={handleShow}
                   onChange={handleChange}
                   
@@ -112,8 +142,8 @@ const Appraisal= ()=>{
                 <Form.Control
                   type="number"
                   placeholder="lat"
-                  value={location.lat}
-                  name="location"
+                  value={values.map_lat}
+                  name="map_lat"
                   className="input-box"
                   onChange={handleChange}
                 />
@@ -123,8 +153,8 @@ const Appraisal= ()=>{
                 <Form.Control
                   type="number"
                   placeholder="lng"
-                  value={location.lng}
-                  name="location"
+                  value={values.map_lng}
+                  name="map_lng"
                   className="input-box"
                   onChange={handleChange}
                 />
@@ -137,34 +167,25 @@ const Appraisal= ()=>{
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
-                  value={values.area}
-                  name="area"
+                  value={values.size}
+                  name="size"
                   placeholder="المساحة الكلية"
                   className="input-box"
                   onChange={handleChange}
                 />
-                {errors.area && <p>{errors.area}</p>}
+                {errors.size && <p>{errors.size}</p>}
               </Form.Group>
 
 
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="number"
-                  placeholder="عرض الواجهة"
-                  name="width"
+                  placeholder="عدد المطابخ"
+                  name="kitchen"
                   className="input-box"
                   onChange={handleChange}
                 />
-                {errors.width && <p>{errors.width}</p>}
-              </Form.Group>
-
-              <Form.Group className="col mx-1" >
-              <Form.Select aria-label="Default select example" className='select'>
- 
-                  <option value="home">منزل</option>
-                 <option value="flat">شقه</option>
-                 
-              </Form.Select>
+                {errors.kitchen && <p>{errors.kitchen}</p>}
               </Form.Group>
               {/* <Form.Group className="col mx-1">
                 <Form.Control
@@ -193,23 +214,23 @@ const Appraisal= ()=>{
                   type="number"
                   onChange={handleChange}
                   placeholder="عدد المرافق"
-                  name="bath"
+                  name="bathroom"
                   className="input-box"
+                  value={values.bathroom}
                 />
-                {errors.bath && <p>{errors.bath}</p>}
+                {errors.bathroom && <p>{errors.bathroom}</p>}
               </Form.Group>
               <Form.Group className="col mx-1">
                 <Form.Control
                   type="file"
-                  placeholder=""
+                  placeholder="ارفاق صورة"
                   className="input-box appraisal_btn"
                   id="image_appraisal"
-                  name="image_appraisal"
+                  name="image"
                   accept="image/png, image/jpeg"
-                  onChange={handleChange}
-                  name="imge"
+                  onChange={changeHandler}
                 />
-                {errors.imge && <p>{errors.imge}</p>}
+                {errors.image && <p>{errors.image}</p>}
               </Form.Group>
             </div>
             <br />
@@ -217,9 +238,11 @@ const Appraisal= ()=>{
               <textarea
                 className="form-control"
                 id="details_appraisal"
+                name='note'
                 placeholder="تفاصيل اخرى"
                 rows="3"
                 onChange={handleChange}
+                value={values.note}
               ></textarea>
               {/* <Form.Text className="text-muted">
       We'll never share your email with anyone else.
@@ -257,9 +280,9 @@ const Appraisal= ()=>{
                 <>
                   <button onClick={handleResetLocation}>Reset Location</button>
                   <label>Latitute:</label>
-                  <input type="text" value={location.lat} disabled />
+                  <input type="text" value={values.map_lat} disabled />
                   <label>Longitute:</label>
-                  <input type="text" value={location.lng} disabled />
+                  <input type="text" value={values.map_lng} disabled />
                   <label>Zoom:</label>
                   <input type="text" value={zoom} disabled />
 
@@ -270,7 +293,7 @@ const Appraisal= ()=>{
                     style={{ height: "500px" }}
                     onChangeLocation={handleChangeLocation}
                     onChangeZoom={handleChangeZoom}
-                    apiKey="AIzaSyD07E1VvpsN_0FvsmKAj4nK9GnLq-9jtj8"
+                    apiKey="AIzaSyDKyLaf0yMiN8jBTA1vlq8EOxQewJKJQOw"
                   />
                 </>
               </Modal.Body>

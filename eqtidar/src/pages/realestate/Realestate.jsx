@@ -5,19 +5,19 @@ const Realestate = () => {
     const [data, setData] = useState({
 		posts: [],
 	});
+    
 	useEffect(() => {
 		axios.get('api/realestate').then((res) => {
 			setData({
 				posts: res.data,
 			});
-			console.log(res.data);
 		});
 	}, [setData]);
 
 
     const listRealestates = data.posts.map((item)=>
         <div className='realestate-card'>
-            <div className='card-img-container'>
+            <div className='card-img-container' style={{background:`linear-gradient(to bottom, rgba(14, 14, 14, 0), rgb(0,49,60)) , url(https://ameernas.pythonanywhere.com${item.images[0].image}) no-repeat center center`,backgroundSize:`cover`}}>
                 </div>
                 <div className='card-details'>
                     <h1 className='card-status'>معروض {item.status}</h1>

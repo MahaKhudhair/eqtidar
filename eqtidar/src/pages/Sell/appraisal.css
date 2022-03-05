@@ -1,0 +1,57 @@
+.container_appraisal {
+  background: linear-gradient(to bottom, #101820 0%, #00313c 100%);
+  padding: 5rem 7rem;
+  margin: 4rem 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: #c7c9c9;
+  flex-wrap: wrap;
+}
+.input-box,
+#details_appraisal {
+  background-color: rgba(129, 129, 129, 0.2);
+  border: 0.1px solid #606870;
+}
+.input-box:focus {
+  background-color: #ecebeb;
+}
+#image_appraisal::before {
+  content: "ارفاق صورة";
+  color: #101921 !important;
+}
+#image_appraisal::-webkit-file-upload-button {
+  visibility: hidden;
+  overflow: hidden;
+}
+input[type="file"] {
+  color: rgba(0, 0, 0, 0) !important;
+  overflow: hidden !important;
+}
+.form_appraisal .input-box {
+  color: #333;
+}
+input[type="number"].input-box::-webkit-input-placeholder,
+input[type="text"].input-box::-webkit-input-placeholder,
+input[type="tel"].input-box::-webkit-input-placeholder {
+  color: #c7c9c9;
+}
+
+.appraisal_btn {
+  background-color: #c7c9c9;
+  color: #101921 !important;
+  text-align: center;
+}
+.appraisal_btn:hover {
+  background-color: #9adbe8;
+}
+
+.btn_send {
+  background-color: #9adbe8;
+  width: 8rem;
+}
+.btn_send:hover {
+  background-color: #c7c9c9;
+}

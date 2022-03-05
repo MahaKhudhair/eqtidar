@@ -60,23 +60,23 @@ const FormSignup = () => {
           <input
             className='form-input'
             type='text'
-            name='fullName'
+            name='full_name'
             placeholder='الاسم الاول'
-            value={values.fullName}
+            value={values.full_name}
             onChange={handleChange}
           />
-          {errors.fullName && <p>{errors.fullName}</p>}
+          {errors.full_name && <p>{errors.full_name}</p>}
         </div>
         <div className='form-inputs'>
           <input
             className='form-input'
             type='number'
-            name='phone'
+            name='phone_number'
             placeholder='رقم الهاتف'
-            value={values.phone}
+            value={values.phone_number}
             onChange={handleChange}
           />
-          {errors.phone && <p>{errors.phone}</p>}
+          {errors.phone && <p>{errors.phone_number}</p>}
         </div>
         <div className='form-inputs'>
           <input
@@ -93,12 +93,12 @@ const FormSignup = () => {
           <input
             className='form-input'
             type='password'
-            name='password'
+            name='password1'
             placeholder='كلمة السر'
-            value={values.password}
+            value={values.password1}
             onChange={handleChange}
           />
-          {errors.password && <p>{errors.password}</p>}
+          {errors.password1 && <p>{errors.password1}</p>}
         </div>
         <div className='form-inputs'>
           <input
