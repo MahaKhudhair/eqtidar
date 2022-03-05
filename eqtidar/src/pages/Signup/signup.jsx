@@ -40,6 +40,9 @@ const FormSignup = () => {
       signup(values.full_name , values.email , values.phone_number, values.password1 , values.password2);
       if (!isAuth){
         console.log('error in signup')
+        setErrors(errors.password)
+        console.log(errors)
+        return errors
       }
       else{
         console.log(isAuth)

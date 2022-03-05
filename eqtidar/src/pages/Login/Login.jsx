@@ -37,12 +37,9 @@ function FormLogin () {
     if (Object.keys(errors).length === 0){
       login(values.email , values.password);
       if (!isAuth){
-        console.log('done')
-        console.log(isAuth)
         
       }
       else{
-        console.log('kol khara')
         console.log(isAuth)
         return navigate('/')
       }

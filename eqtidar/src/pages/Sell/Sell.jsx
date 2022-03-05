@@ -12,7 +12,15 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 import axios from '../../utils/axios';
 import { authHeader } from '../../hooks/authHeader';
 import { TOKEN_KEY } from '../../utils/Constants';
-const Sell = () => {
+import AuthContext from "../../contexts/authcontext";
+import useAuth from '../../hooks/useAuth';
+import { useNavigate} from "react-router-dom";
+
+
+  const Sell = () => {
+
+    const navigate = useNavigate();
+    const {isAuth} = useAuth()
   const [values, setValues] = useState({
     location: '',
     category_name:'',
@@ -60,6 +68,10 @@ const Sell = () => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
+
+    if(!isAuth){
+      navigate('/login')
+    }
     if (Object.keys(errors).length === 0){
       axios.post('/api/realestate/sell',formData , config)
       .then((response)=>{
@@ -200,7 +212,7 @@ const Sell = () => {
 
               <div className='row'>
               <Form.Group className="col mx-1" >
-              <Form.Select aria-label="Default select example" className='select'>
+              <Form.Select aria-label="Default select example" className='select' value={values.category_name}>
  
                   <option value={values.category_name}>منزل</option>
                  <option value={values.category_name}>شقة</option>
@@ -209,7 +221,7 @@ const Sell = () => {
               </Form.Group>
 
               <Form.Group className="col mx-1">
-              <Form.Select aria-label="Default select example" className='select' >
+              <Form.Select aria-label="Default select example" className='select' value={values.status}>
  
                   <option value={values.status}>بيع</option>
                  <option value={values.status}>ايجار</option>
