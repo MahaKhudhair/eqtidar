@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import details01 from "../../assets/img/details01.jpg";
@@ -18,7 +18,9 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function Details() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="container_details">
       <Swiper
